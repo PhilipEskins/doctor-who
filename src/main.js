@@ -25,9 +25,9 @@ $(document).ready(function() {
             $("#results").append(`Office Address: <br> ${address.street} ${address.street2}<br> ${address.city}, ${address.state} ${address.zip}<br>`)
           }
           element2.phones.forEach(function(element3){
-            // console.log(element3.number);
             let newPhone = doctors.formatPhone(element3.number);
-            $("#results").append(`Phone Number: ${newPhone}<br>Type: ${element3.type}<br>`)
+            let newType = doctors.formatType(element3.type);
+            $("#results").append(`Phone Number: ${newPhone}<br>Type: ${newType}<br>`)
           })
           // console.log(element2.phones);
           if (element2.website === undefined) {

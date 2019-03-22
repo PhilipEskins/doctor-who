@@ -32,5 +32,14 @@ export class Doctor {
     const fixedPhone = brokenPhone.join('');
     return fixedPhone;
   }
+  formatType(type) {
+    if(type.includes("_") === true) {
+      const bite = type.replace("_", " ");
+      console.log(bite);
+      return bite;
+    } else {
+      return type
+    }
+  }
 
 }
