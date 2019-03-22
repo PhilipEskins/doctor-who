@@ -5,12 +5,16 @@ import './sass/styles.scss';
 import { Doctor } from './js/logic.js';
 
 $(document).ready(function() {
-  const doctors = new Doctor
 
   function findDoc(condition) {
     const promise = doctors.getDoctor(condition);
     promise.then(function(response) {
       const body = JSON.parse(response);
+      const checkData = doctors.checkResults(body);
+      if (checkData === false) {
+        $("#results").append(`Unable to find a doctor for ${condition}`);
+      }
+
       body.data.forEach(function(element) {
         $("#results").append(`First Name: ${element.profile.first_name} ${element.profile.last_name}<br>`);
         element.practices.forEach(function(element2){
@@ -22,7 +26,8 @@ $(document).ready(function() {
           }
           element2.phones.forEach(function(element3){
             // console.log(element3.number);
-            $("#results").append(`Phone Number: ${element3.number}<br>Type: ${element3.type}<br>`)
+            let newPhone = doctors.formatPhone(element3.number);
+            $("#results").append(`Phone Number: ${newPhone}<br>Type: ${element3.type}<br>`)
           })
           // console.log(element2.phones);
           if (element2.website === undefined) {
@@ -43,12 +48,13 @@ $(document).ready(function() {
       // console.log("it didn't work");
     })
   }
+  const doctors = new Doctor
 
   $("form#docInput").submit(function(event) {
     event.preventDefault();
     const condition = $("#condition").val();
-    console.log(condition);
     findDoc(condition);
+
   })
 
 })
