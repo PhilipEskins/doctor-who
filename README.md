@@ -12,6 +12,8 @@ _This application will display a list of doctors in the Beaverton/Portland area 
 
 * _Download repository from https://github.com/PhilipEskins/solar-age/_
 * _Type npm install from the command line interface_
+* _Sign up for an API key from https://developer.betterdoctor.com/_
+* _Create an .env file with the variable name exports.apiKey that will hold your personal API key
 * _Type npm run start from the command line interface_
 * _If you'd like to alter or see the code for the project, after downloading open the project up in your favorite code editor._
 
