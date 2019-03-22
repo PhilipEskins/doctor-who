@@ -16,7 +16,7 @@ $(document).ready(function() {
       }
 
       body.data.forEach(function(element) {
-        $("#results").append(`First Name: ${element.profile.first_name} ${element.profile.last_name}<br>`);
+        $("#results").append(`<strong>Doctor's Name: ${element.profile.first_name} ${element.profile.last_name}</strong><br>`);
         element.practices.forEach(function(element2){
           const address = element2.visit_address;
           if(address.street2 === undefined) {
@@ -53,8 +53,11 @@ $(document).ready(function() {
   $("form#docInput").submit(function(event) {
     event.preventDefault();
     const condition = $("#condition").val();
-    findDoc(condition);
-
+    if (condition.toLowerCase() === 'monster' || condition.toLowerCase() === 'monsters' || condition.toLowerCase() === 'alien' || condition.toLowerCase() === 'aliens' || condition.toLowerCase() === 'dalek' || condition.toLowerCase() === 'daleks' || condition.toLowerCase() === 'cyberman' || condition.toLowerCase() === 'cybermen') {
+      $("#results").append(`Only one person can help with that, <a href="https://en.wikipedia.org/wiki/The_Doctor_(Doctor_Who)" target="_blank">The Doctor</a>`);
+    } else {
+      findDoc(condition);
+    }
   })
 
 })
