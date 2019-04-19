@@ -10,7 +10,7 @@ _This application will display a list of doctors in the Beaverton/Portland area 
 
 ## Setup/Installation Requirements
 
-* _Download repository from https://github.com/PhilipEskins/solar-age/_
+* _Download repository from https://github.com/PhilipEskins/doctor-who/_
 * _Type npm install from the command line interface_
 * _Sign up for an API key from https://developer.betterdoctor.com/_
 * _Create an .env file with the variable name exports.apiKey that will hold your personal API key_
